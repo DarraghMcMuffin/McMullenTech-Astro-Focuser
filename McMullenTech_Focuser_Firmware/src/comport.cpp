@@ -35,7 +35,6 @@ void COMPort::begin(uint32_t baudRate){
 void COMPort::run(void *pvParameter){
     COMPort* ser = static_cast<COMPort*> (pvParameter);
     char c = '\0';
-    struct cmdStruct command;
 
     for(;;){
         //ser->stream->println(ser->outBuff);
@@ -44,13 +43,15 @@ void COMPort::run(void *pvParameter){
         if(ser->stream->available() > 0){
           c = ser->stream->read();
           // simplify into parseInput()
-          if(c == '\r'){
-            command = ser->parseCommand(ser->inBuff);
+          if(c == '\r' && !ser->cmd.valid){
+            ser->cmd = ser->parseCommand(ser->inBuff);
+            /*
             if(command.valid){
               ser->send("VALID");
             }else{
               ser->send("INVAL");
             }
+            */
             ser->resetInBuff();
           }else if(c != '\n'){    // ignore \n
             if(!ser->appendInBuff(c)){
@@ -59,11 +60,14 @@ void COMPort::run(void *pvParameter){
           }
         }
 
+        /*
         if(command.valid){
-          ser->send("EXEC");
-          ser->execCmd(command);
+          //ser->send("EXEC");
+          ser->execCmd(ser->cmd);
           command.valid = false;
         }
+        */
+
     }
 }
 
@@ -127,7 +131,7 @@ struct cmdStruct COMPort::parseCommand(const char *buff){
                                                               else if(c == ']'){state++;}                    // if ']': end of command
                                                               else{state = -1;}                 
                                                               break;}
-      case 4:{ newCmd.val = (int16_t)atof(valBuff); newCmd.valid = true; state = -1; break;}         // set value to int cast of valBuff and set cmd valid
+      case 4:{ newCmd.val = (int32_t)atof(valBuff); newCmd.valid = true; state = -1; break;}         // set value to int cast of valBuff and set cmd valid
       default:{state = -1; break;}
     }
   }
@@ -135,13 +139,25 @@ struct cmdStruct COMPort::parseCommand(const char *buff){
 }
 
 
-int COMPort::execCmd(struct cmdStruct cmd){   // add set:home:relative:0 to set home at current position
-  if(!cmd.valid){
+int COMPort::reportCmd(){   // add set:home:relative:0 to set home at current position
+  if(!this->cmd.valid){
     return 0;
   }
   char tempBuff[OUT_BUFF_SIZE] = {'\0'};
-  snprintf(tempBuff, OUT_BUFF_SIZE, "<%c%c%d>", (char)cmd.prim, (char)cmd.sec, (int16_t)cmd.val);
+  snprintf(tempBuff, OUT_BUFF_SIZE, "<%c%c%d>", (char)this->cmd.prim, (char)this->cmd.sec, (int32_t)this->cmd.val);
   this->send(tempBuff);
 
   return 1;
+}
+
+
+
+bool COMPort::commandAvailable(){
+  return this->cmd.valid;
+}
+
+struct cmdStruct COMPort::getCommand(){
+  this->reportCmd();
+  this->cmd.valid = false;
+  return this->cmd;
 }

@@ -35,11 +35,6 @@ void digitalInput::run(void *pvParameter){
     }
 }
 
-void digitalInput::pollInputsNoDB(){
-    state_1 = digitalRead(BUTTON_1);
-    state_2 = digitalRead(BUTTON_2);
-}
-
 
 void digitalInput::pollInputs(){
     bool state_new = 0;

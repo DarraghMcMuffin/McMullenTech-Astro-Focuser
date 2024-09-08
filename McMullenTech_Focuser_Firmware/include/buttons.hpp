@@ -15,7 +15,6 @@ class digitalInput{
     private:
 
         void pollInputs();
-        void pollInputsNoDB();
 
         bool state_1 = 0;
         bool state_2 = 0;
@@ -25,5 +24,4 @@ class digitalInput{
         uint32_t state_1_prev_time = 0;
         uint32_t state_2_prev_time = 0;
         
-
 };

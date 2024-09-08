@@ -1,30 +1,36 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\",
+  "WorkspaceRootPath": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C708E487-E3A9-4073-A545-294B88674225}|McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\mcmullentech fouser driver\\focuserdriver\\focuserhardware..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|McMullenTech Fouser Driver||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C708E487-E3A9-4073-A545-294B88674225}|McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\mcmullentech fouser driver\\focuserdriver\\focuserhardware..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C708E487-E3A9-4073-A545-294B88674225}|McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj|solutionrelative:mcmullentech fouser driver\\focuserdriver\\focuserhardware..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C708E487-E3A9-4073-A545-294B88674225}|McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\mcmullentech fouser driver\\focuserdriver\\focuserdriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C708E487-E3A9-4073-A545-294B88674225}|McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\mcmullentech fouser driver\\focuserdriver\\focuserdriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C708E487-E3A9-4073-A545-294B88674225}|McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj|solutionrelative:mcmullentech fouser driver\\focuserdriver\\focuserdriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\mcmullentech focuser control\\mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\mcmullentech focuser control\\mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|solutionrelative:mcmullentech focuser control\\mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\mcmullentech focuser control\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\mcmullentech focuser control\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|solutionrelative:mcmullentech focuser control\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\mcmullentech focuser control\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\mcmullentech focuser control\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|solutionrelative:mcmullentech focuser control\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\mcmullentech focuser control\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\mcmullentech focuser control\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E8D406C-1838-4914-867D-AB602D0EAF3E}|McMullenTech Focuser Control\\McMullenTech Focuser Control.csproj|solutionrelative:mcmullentech focuser control\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C708E487-E3A9-4073-A545-294B88674225}|McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj|c:\\users\\maca4\\desktop\\projects\\astro\\focuser\\mcmullentech_focuser\\mcmullentech_focuser_driver\\mcmullentech fouser driver\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +40,90 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\Program.cs",
-              "RelativeDocumentMoniker": "McMullenTech Focuser Control\\Program.cs",
-              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\Program.cs",
-              "RelativeToolTip": "McMullenTech Focuser Control\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T08:45:58.191Z",
+              "DocumentIndex": 0,
+              "Title": "McMullenTech Fouser Driver",
+              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj",
+              "RelativeDocumentMoniker": "McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj",
+              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj",
+              "RelativeToolTip": "McMullenTech Fouser Driver\\McMullenTech Fouser Driver.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-09-08T02:10:05.589Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\MainWindow.Designer.cs",
-              "RelativeDocumentMoniker": "McMullenTech Focuser Control\\MainWindow.Designer.cs",
-              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\MainWindow.Designer.cs",
-              "RelativeToolTip": "McMullenTech Focuser Control\\MainWindow.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Control\\Program.cs",
+              "RelativeDocumentMoniker": "McMullenTech Focuser Control\\Program.cs",
+              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Control\\Program.cs",
+              "RelativeToolTip": "McMullenTech Focuser Control\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T08:44:17.272Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T08:45:58.191Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MainWindow.cs",
-              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\MainWindow.cs",
-              "RelativeDocumentMoniker": "McMullenTech Focuser Control\\MainWindow.cs",
-              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\MainWindow.cs",
-              "RelativeToolTip": "McMullenTech Focuser Control\\MainWindow.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAABCAAAAAAAAAA==",
+              "Title": "MainWindow.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Control\\MainWindow.Designer.cs",
+              "RelativeDocumentMoniker": "McMullenTech Focuser Control\\MainWindow.Designer.cs",
+              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Control\\MainWindow.Designer.cs",
+              "RelativeToolTip": "McMullenTech Focuser Control\\MainWindow.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T08:43:33.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T08:44:17.272Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MainWindow.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\MainWindow.cs",
+              "Title": "MainWindow.cs",
+              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Control\\MainWindow.cs",
               "RelativeDocumentMoniker": "McMullenTech Focuser Control\\MainWindow.cs",
-              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\MainWindow.cs [Design]",
-              "RelativeToolTip": "McMullenTech Focuser Control\\MainWindow.cs [Design]",
+              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Control\\MainWindow.cs",
+              "RelativeToolTip": "McMullenTech Focuser Control\\MainWindow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T08:43:21.094Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-04T08:43:33.321Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FocuserHardware..cs",
-              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Fouser Driver\\FocuserDriver\\FocuserHardware..cs",
-              "RelativeDocumentMoniker": "McMullenTech Fouser Driver\\FocuserDriver\\FocuserHardware..cs",
-              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Fouser Driver\\FocuserDriver\\FocuserHardware..cs",
-              "RelativeToolTip": "McMullenTech Fouser Driver\\FocuserDriver\\FocuserHardware..cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAAAJAAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Control\\MainWindow.cs",
+              "RelativeDocumentMoniker": "McMullenTech Focuser Control\\MainWindow.cs",
+              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\MainWindow.cs [Design]",
+              "RelativeToolTip": "..\\McMullenTech_Fouser_Driver\\McMullenTech Focuser Control\\MainWindow.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T09:35:18.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T08:43:21.094Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "FocuserHardware..cs",
+              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Fouser Driver\\FocuserDriver\\FocuserHardware..cs",
+              "RelativeDocumentMoniker": "McMullenTech Fouser Driver\\FocuserDriver\\FocuserHardware..cs",
+              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Fouser Driver\\FocuserDriver\\FocuserHardware..cs",
+              "RelativeToolTip": "McMullenTech Fouser Driver\\FocuserDriver\\FocuserHardware..cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAowIoAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T09:35:18.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FocuserDriver.cs",
-              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Fouser Driver\\FocuserDriver\\FocuserDriver.cs",
+              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Fouser Driver\\FocuserDriver\\FocuserDriver.cs",
               "RelativeDocumentMoniker": "McMullenTech Fouser Driver\\FocuserDriver\\FocuserDriver.cs",
-              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Fouser_Driver\\McMullenTech Fouser Driver\\FocuserDriver\\FocuserDriver.cs",
+              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Fouser Driver\\FocuserDriver\\FocuserDriver.cs",
               "RelativeToolTip": "McMullenTech Fouser Driver\\FocuserDriver\\FocuserDriver.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAEoAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T09:04:21.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-01T09:04:21.455Z"
             }
           ]
         }

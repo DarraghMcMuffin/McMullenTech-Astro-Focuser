@@ -17,6 +17,7 @@ class stepper {
         uint8_t softStop();
         uint8_t startJog(signed char direction);
         uint8_t stopJog();
+        bool isJogging();
         uint8_t emergencyStop();
         uint8_t resetEmergencyStop();
         uint8_t setHomeHere();
@@ -28,7 +29,8 @@ class stepper {
         void reduceSpeed(int factor);
 
     private:
-        float position;
+        bool jogging = false;
+        float position = 0;
         HardwareSerial stepper_serial;
         DRIVER_MODEL driver;
         ESP_FlexyStepper motor;

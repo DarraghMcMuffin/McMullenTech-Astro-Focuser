@@ -4,6 +4,28 @@
 #include <SoftwareSerial.h>
 
 
+struct cmdStruct{
+    bool valid;
+    char prim;
+    char sec;
+    int32_t val;
+    cmdStruct():valid(false),
+                prim('\0'),
+                sec('\0'),
+                val(0){}
+};
+
+// Allowed commands:
+// [Aaf]
+// S:<h,r>:int      Set:home,rate
+// R:<p,m,w,v>      Read:position,moving,weather,version
+// M:<a,r,s>:int    Move:absolute,relative,stop
+//
+// Allowed respose:
+// I:
+// ""
+
+
 class COMPort {
 
     public:
@@ -20,7 +42,9 @@ class COMPort {
         int setOutBuff(const char *buff);
         int send(const char *buff);
         struct cmdStruct parseCommand(const char *buff);
-        int execCmd(struct cmdStruct cmd);
+        int reportCmd();
+        bool commandAvailable();
+        struct cmdStruct getCommand();
 
     private:        
         // check for stream available
@@ -37,27 +61,6 @@ class COMPort {
         char inBuff[IN_BUFF_SIZE] = {'\0'};
         int inBuffIdx = 0;
         char outBuff[OUT_BUFF_SIZE] = {'\0'};
+        struct cmdStruct cmd;
 };
 
-
-struct cmdStruct{
-    bool valid;
-    char prim;
-    char sec;
-    int16_t val;
-    cmdStruct():valid(false),
-                prim('\0'),
-                sec('\0'),
-                val(0.0){}
-};
-
-
-
-// Allowed commands:
-// S:<h,r>:int      Set:home,rate
-// R:<p,m,w,v>      Read:position,moving,weather,version
-// M:<a,r,s>:int    Move:absolute,relative,stop
-//
-// Allowed respose:
-// I:
-// ""

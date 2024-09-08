@@ -98,12 +98,18 @@ uint8_t stepper::softStop(){
 
 uint8_t stepper::startJog(signed char direction){
     motor.startJogging(direction);
+    jogging = true;
     return 1;
 }
 
 uint8_t stepper::stopJog(){
     motor.stopJogging();
+    jogging = false;
     return 1;
+}
+
+bool stepper::isJogging(){
+    return jogging;
 }
 
 uint8_t stepper::emergencyStop(){

@@ -8,6 +8,8 @@
 
 #pragma once
 
+#define VERSION McMullenTech Focuser 0.1a
+
 // USB config
 #define USB_SERIAL  Serial
 #define USB_BAUD    115200
