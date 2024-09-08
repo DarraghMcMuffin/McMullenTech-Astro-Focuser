@@ -15,6 +15,8 @@
 void Master::run(void *pvParameter){
   Master* master = static_cast<Master*> (pvParameter);
 
+  pinMode(LED_BUILTIN, OUTPUT);
+
   master->ser->begin(USB_BAUD);
 
   xTaskCreatePinnedToCore(COMPort::run, "COMPortTask", 4000, (void*)master->ser, 4, NULL, 1);
@@ -105,7 +107,12 @@ void Master::executeCommand(){
 
   if(this->cmd.prim == 'E'){
     if(this->cmd.sec == 's'){
-      this->motor->emergencyStop();
+      if(this->cmd.val == -1){
+        this->motor->resetEmergencyStop();
+      }
+      else{
+        this->motor->emergencyStop();
+      }
     }
     else{
 
@@ -136,16 +143,25 @@ void Master::executeCommand(){
 
   else if(this->cmd.prim == 'R'){ // Read
     if(this->cmd.sec == 'p'){
-      //this->ser->reportPosition(this->motor->getPosition());
+      snprintf(this->charBuff, OUT_BUFF_SIZE, "<Ip%d>", this->motor->getPosition());
+      this->ser->send(this->charBuff);
     }
     else if(this->cmd.sec == 'm'){
-      //this->ser->reportMoving(this->motor->isMoving());
+      snprintf(this->charBuff, OUT_BUFF_SIZE, "<Im%d>", this->motor->isMoving());
+      this->ser->send(this->charBuff);
     }
     else if(this->cmd.sec == 'w'){
-      //this->ser->reportPosition(this->weather->getData);
+      if(this->weather->available()){
+        snprintf(this->charBuff, OUT_BUFF_SIZE, "<It%.2fh%.2fk%.3fd%.2f>", this->weather->getTemperature(), this->weather->getHumidity(), this->weather->getPressure(), this->weather->getDewPoint());
+        this->ser->send(this->charBuff);
+      }
+      else{
+        // Error
+      }
     }
     else if(this->cmd.sec == 'v'){
-      //this->ser->reportVersion();
+      snprintf(this->charBuff, OUT_BUFF_SIZE, "<Iv'%s'>", VERSION);
+      this->ser->send(this->charBuff);
     }
     else{
 

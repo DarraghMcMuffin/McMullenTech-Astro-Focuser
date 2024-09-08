@@ -8,7 +8,7 @@
 
 #pragma once
 
-#define VERSION McMullenTech Focuser 0.1a
+#define VERSION "MTAF0.1a"
 
 // USB config
 #define USB_SERIAL  Serial

@@ -16,7 +16,7 @@ stepper::stepper(): stepper_serial(HardwareSerial(TMC_SERIAL)),
     //driver.semin(5);
     //driver.semax(4);
     driver.pwm_autoscale(true);
-    driver.en_spreadCycle(true);
+    driver.en_spreadCycle(false);//(false);
     driver.microsteps((MICROSTEPPING == 1) ? 0 : MICROSTEPPING);
     driver.intpol(true);
     driver.TCOOLTHRS(0xFFFFF);
@@ -34,20 +34,25 @@ stepper::stepper(): stepper_serial(HardwareSerial(TMC_SERIAL)),
 }
 
 
-void stepper::reduceSpeed(int factor){
-    motor.setSpeedInStepsPerSecond((MAX_RATE * MICROSTEPPING)/factor);
-}
-
-
 void stepper::run(void *pvParameter){
-    stepper* foc = static_cast<stepper*> (pvParameter);
-    foc->enable();
+    stepper* motor = static_cast<stepper*> (pvParameter);
+    motor->enable();
     
     for(;;){
-        vTaskDelay(pdMS_TO_TICKS(1000));
+
+        // dynamic spreadcycle/stealthchop mode
+        if(motor->isMoving()){
+            motor->driver.en_spreadCycle(true);
+            digitalWrite(LED_BUILTIN, LOW);
+        }else{
+            motor->driver.en_spreadCycle(false);
+            digitalWrite(LED_BUILTIN, HIGH);
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(20));
     }
 
-    foc->disable();
+    motor->disable();
 }
 
 uint8_t stepper::enable(){
@@ -60,6 +65,10 @@ uint8_t stepper::disable(){
     motor.disableDriver();
     motor.stopService();
     return 1;
+}
+
+void stepper::reduceSpeed(int factor){
+    motor.setSpeedInStepsPerSecond((MAX_RATE * MICROSTEPPING)/factor);
 }
 
 uint8_t stepper::moveToPosition(float pos){
@@ -80,7 +89,7 @@ uint8_t stepper::moveRelative(float dist){
 
 bool stepper::isMoving(){
     bool ret = false;
-    if(motor.motionComplete()) {ret = true;}
+    if(!motor.motionComplete() || isJogging()) {ret = true;}
     return ret;
 }
 

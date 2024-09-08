@@ -41,6 +41,7 @@ void COMPort::run(void *pvParameter){
         vTaskDelay( pdMS_TO_TICKS(COM_LOOP_RATE) );
 
         if(ser->stream->available() > 0){
+          digitalWrite(LED_BUILTIN, LOW);
           c = ser->stream->read();
           // simplify into parseInput()
           if(c == '\r' && !ser->cmd.valid){
@@ -58,6 +59,7 @@ void COMPort::run(void *pvParameter){
               ser->resetInBuff();
             }
           }
+          digitalWrite(LED_BUILTIN, HIGH);
         }
 
         /*
@@ -102,7 +104,9 @@ int COMPort::setOutBuff(const char *buff){
 }
 
 int COMPort::send(const char *buff){
+  digitalWrite(LED_BUILTIN, LOW);
   this->stream->println(buff);
+  digitalWrite(LED_BUILTIN, HIGH);
   return 1;
 }
 
