@@ -1,0 +1,38 @@
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.McMullenTech.Test.exe.config
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.McMullenTech.Test.exe
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.McMullenTech.Test.pdb
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.DeviceInterfaces.dll
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.DriverAccess.dll
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.Exceptions.dll
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.Utilities.dll
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.DeviceInterfaces.xml
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.DriverAccess.xml
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.Exceptions.xml
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\bin\Debug\ASCOM.Utilities.xml
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\obj\x86\Debug\McMullenTech Focuser Control.csproj.AssemblyReference.cache
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\obj\x86\Debug\ASCOM.McMullenTech.MainWindow.resources
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\obj\x86\Debug\ASCOM.McMullenTech.Properties.Resources.resources
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\obj\x86\Debug\McMullenTech Focuser Control.csproj.GenerateResource.cache
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\obj\x86\Debug\McMullenTech Focuser Control.csproj.CoreCompileInputs.cache
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\obj\x86\Debug\McMullen.1F91773F.Up2Date
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\obj\x86\Debug\ASCOM.McMullenTech.Test.exe
+C:\Users\maca4\Desktop\Projects\Astro\FocuserV2\McMullenTech-Astro-Focuser\McMullenTech_Focuser_Control\McMullenTech Focuser Control\obj\x86\Debug\ASCOM.McMullenTech.Test.pdb
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.DeviceInterfaces.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.DriverAccess.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.Exceptions.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.Utilities.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.DeviceInterfaces.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.DriverAccess.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.Exceptions.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.Utilities.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\obj\x86\Debug\McMullenTech Focuser Control.csproj.AssemblyReference.cache
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\obj\x86\Debug\McMullenTech Focuser Control.csproj.GenerateResource.cache
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\obj\x86\Debug\McMullenTech Focuser Control.csproj.CoreCompileInputs.cache
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\obj\x86\Debug\McMullen.1F91773F.Up2Date
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.McMullenTech.Controller.exe.config
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.McMullenTech.Controller.exe
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\bin\Debug\ASCOM.McMullenTech.Controller.pdb
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\obj\x86\Debug\ASCOM.McMullenTechFocuser.MainWindow.resources
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\obj\x86\Debug\ASCOM.McMullenTechFocuser.Properties.Resources.resources
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\obj\x86\Debug\ASCOM.McMullenTech.Controller.exe
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Focuser Control\obj\x86\Debug\ASCOM.McMullenTech.Controller.pdb
