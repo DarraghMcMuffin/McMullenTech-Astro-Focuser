@@ -49,6 +49,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         internal static SerialPort serialPort;  
         internal static bool moving = false;
         internal static int baudRate = 115200;  // TODO, set from setup dialog
+        internal static string serialRxBuff = null;
 
 
         /// <summary>
@@ -82,6 +83,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         internal static void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             //TODO implement data received callback
+            serialRxBuff = serialPort.ReadLine();
         }
 
 
@@ -98,8 +100,17 @@ namespace ASCOM.McMullenTechFocuser.Focuser
                     serialPort.Open();
                 }
 
-                Action("","");  // TODO check if comms OK
-                // send initial config and get initial data
+
+                // TODO send initial config and get initial data
+                string ret = Action("readVersion", "");  // check if comms OK
+                if(ret != null)
+                {
+
+                }
+                else
+                {
+                    throw new Exception("Cannot connect to focuser on serial port");
+                }
 
 
             }
@@ -193,10 +204,34 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         /// <para>Suppose filter wheels start to appear with automatic wheel changers; new actions could be <c>QueryWheels</c> and <c>SelectWheel</c>. The former returning a formatted list
         /// of wheel names and the second taking a wheel name and making the change, returning appropriate values to indicate success or failure.</para>
         /// </returns>
-        public static string Action(string actionName, string actionParameters)
-        {
-            LogMessage("Action", $"Action {actionName}, parameters {actionParameters} is not implemented");
-            throw new ActionNotImplementedException("Action " + actionName + " is not implemented by this driver");
+        public static string Action(string actionName = null, string actionParameters = "0")
+        {   // TODO implement actions
+            string ret = null;
+
+            switch (actionName)
+            {
+                case "readVersion":
+                    serialPort.WriteLine("[Rv" + actionParameters + "]");
+                    ret = "<Iv'MTAF0.1a'>";
+                    break;
+
+                case "moveAbsolute":
+                    serialPort.WriteLine("[Ma" + actionParameters + "]");
+                    ret = "<Im1>";  // TODO fix this
+                    // set moving based on response
+                    break;
+
+                case "readPosition":
+                    serialPort.WriteLine("[Rp" + actionParameters + "]");
+                    ret = "<Ip0>";
+                    break;
+
+                default:
+                    LogMessage("Action", $"Action {actionName}, parameters {actionParameters} is not implemented");
+                    throw new ActionNotImplementedException("Action " + actionName + " is not implemented by this driver");
+            }
+            
+            return ret;
         }
 
         /// <summary>
@@ -520,6 +555,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         internal static void Move(int Position)
         {
             LogMessage("Move", Position.ToString());
+            Action("moveAbsolute",Position.ToString());
             focuserPosition = Position; // Set the focuser position
         }
 

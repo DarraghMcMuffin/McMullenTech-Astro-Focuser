@@ -138,14 +138,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ASCOM.McMullenTechFocuser.exe" size="51640">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ASCOM.McMullenTechFocuser.exe" size="52152">
       <assemblyIdentity name="ASCOM.McMullenTechFocuser" version="6.6.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gvhsQVXaU61H1H4emn4zI+IUug1T4pFIqnU+uuJl+Cc=</dsig:DigestValue>
+        <dsig:DigestValue>VuMIufqsDVZNWxIcU81MCNHu7B8vARPHIJuslG6uDqE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
