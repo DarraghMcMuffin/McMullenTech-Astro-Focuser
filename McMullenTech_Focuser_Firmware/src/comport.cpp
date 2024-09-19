@@ -29,14 +29,17 @@ void COMPort::begin(uint32_t baudRate){
     hwcdcStream->begin(baudRate);
     stream = (Stream*)hwcdcStream;
   }
+  stream->setTimeout(STREAM_TIMEOUT);
 }
 
 
 void COMPort::run(void *pvParameter){
     COMPort* ser = static_cast<COMPort*> (pvParameter);
     char c = '\0';
+    ser->begin(USB_BAUD);
 
     for(;;){
+
         //ser->stream->println(ser->outBuff);
         vTaskDelay( pdMS_TO_TICKS(COM_LOOP_RATE) );
 
@@ -77,7 +80,7 @@ void COMPort::run(void *pvParameter){
 int COMPort::appendInBuff(char c){
   this->inBuff[inBuffIdx] = c;
   this->inBuffIdx++;
-  this->send(this->inBuff);
+  //this->send(this->inBuff);
   if(this->inBuffIdx < IN_BUFF_SIZE){
     return 1;
   }
@@ -155,13 +158,21 @@ int COMPort::reportCmd(){   // add set:home:relative:0 to set home at current po
 }
 
 
+int COMPort::reportInfo(char c, int val){
+  char tempBuff[OUT_BUFF_SIZE] = {'\0'};
+  snprintf(tempBuff, OUT_BUFF_SIZE, "<I%c%d>", c, val);
+  this->send(tempBuff);
+  return 1;
+}
+
+
 
 bool COMPort::commandAvailable(){
   return this->cmd.valid;
 }
 
 struct cmdStruct COMPort::getCommand(){
-  this->reportCmd();
+  //this->reportCmd();
   this->cmd.valid = false;
   return this->cmd;
 }

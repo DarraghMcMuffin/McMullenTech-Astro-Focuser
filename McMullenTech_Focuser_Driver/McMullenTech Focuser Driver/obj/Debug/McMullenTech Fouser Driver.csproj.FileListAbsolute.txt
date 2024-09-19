@@ -67,10 +67,6 @@ C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTech.Controller.exe
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTech.Controller.pdb
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Fouser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTech.Controller.exe.config
-C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.exe.config
-C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.exe.manifest
-C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.application
-C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.exe
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.pdb
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.Astrometry.dll
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.Attributes.dll
@@ -99,8 +95,12 @@ C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\ASCOM.McMullenTechFocuser.Focuser.SetupDialogForm.resources
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\McMullenTech Fouser Driver.csproj.GenerateResource.cache
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\McMullenTech Fouser Driver.csproj.CoreCompileInputs.cache
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\McMullen.A135ED62.Up2Date
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\ASCOM.McMullenTechFocuser.pdb
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.exe.config
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.exe.manifest
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.application
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\bin\Debug\ASCOM.McMullenTechFocuser.exe
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\ASCOM.McMullenTechFocuser.exe.manifest
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\ASCOM.McMullenTechFocuser.application
-C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\McMullen.A135ED62.Up2Date
 C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\ASCOM.McMullenTechFocuser.exe
-C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Fouser Driver\obj\Debug\ASCOM.McMullenTechFocuser.pdb

@@ -43,6 +43,7 @@ class COMPort {
         int send(const char *buff);
         struct cmdStruct parseCommand(const char *buff);
         int reportCmd();
+        int reportInfo(char c, int val);
         bool commandAvailable();
         struct cmdStruct getCommand();
 

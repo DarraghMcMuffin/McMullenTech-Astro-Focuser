@@ -13,6 +13,7 @@
 // USB config
 #define USB_SERIAL  Serial
 #define USB_BAUD    115200
+#define STREAM_TIMEOUT 500
 #define IN_BUFF_SIZE   32
 #define OUT_BUFF_SIZE  32
 #define MAX_FLOAT_LENGTH 6
@@ -52,4 +53,4 @@
 // Rates
 #define BME280_RATE 2000    // loop time (ms)
 #define MAIN_LOOP_RATE 10
-#define COM_LOOP_RATE 100
+#define COM_LOOP_RATE 50

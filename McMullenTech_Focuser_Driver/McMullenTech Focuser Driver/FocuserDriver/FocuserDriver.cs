@@ -372,13 +372,20 @@ namespace ASCOM.McMullenTechFocuser.Focuser
                     {
                         connectedState = true;
                         LogMessage("Connected Set", "Connecting to device");
-                        FocuserHardware.Connected = true;
+                        FocuserHardware.Connected = true;   // TODO Error here?
+                        if (!FocuserHardware.Connected)
+                        {
+                            LogMessage("Connected Set", "Failed to connect to device");
+                            FocuserHardware.Connected = false;
+                            connectedState = false;
+                            throw new Exception("Failed to connect to device");
+                        }
                     }
                     else
                     {
                         connectedState = false;
                         LogMessage("Connected Set", "Disconnecting from device");
-                        FocuserHardware.Connected = false;
+                        FocuserHardware.Connected = false;  
                     }
                 }
                 catch (Exception ex)

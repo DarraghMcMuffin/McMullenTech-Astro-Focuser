@@ -14,7 +14,12 @@ using ASCOM.DeviceInterface;
 using ASCOM.Utilities;
 using System;
 using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO.Ports;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ASCOM.McMullenTechFocuser.Focuser
@@ -38,7 +43,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         private static string DriverProgId = ""; // ASCOM DeviceID (COM ProgID) for this driver, the value is set by the driver's class initialiser.
         private static string DriverDescription = ""; // The value is set by the driver's class initialiser.
         internal static string comPort; // COM port name (if required)
-        private static bool connectedState; // Local server's connected state
+        private static bool connectedState = false; // Local server's connected state
         private static bool runOnce = false; // Flag to enable "one-off" activities only to run once.
         internal static Util utilities; // ASCOM Utilities object for use as required
         internal static AstroUtils astroUtilities; // ASCOM AstroUtilities object for use as required
@@ -46,10 +51,18 @@ namespace ASCOM.McMullenTechFocuser.Focuser
 
 
         // TODO Custom internal variables
-        internal static SerialPort serialPort;  
-        internal static bool moving = false;
+        internal static SerialPort serialPort;
         internal static int baudRate = 115200;  // TODO, set from setup dialog
         internal static string serialRxBuff = null;
+        internal static string rxString = null;
+        internal static bool newRX = false;
+        internal static int responseTimeout = 1000;
+
+        internal static bool moving = false;
+        internal static bool hasMoved = true;
+
+        internal static float temperature = 0;
+        
 
 
         /// <summary>
@@ -78,48 +91,171 @@ namespace ASCOM.McMullenTechFocuser.Focuser
                 throw;
             }
         }
-        
+
 
         internal static void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            //TODO implement data received callback
-            serialRxBuff = serialPort.ReadLine();
+            string res = null;
+            float val = 0;
+            try
+            { 
+                serialRxBuff = serialPort.ReadLine();
+            }
+            catch (Exception)
+            {
+                LogMessage("serialPortReadCallback", "SerialPort read timeout");
+                return;
+            }
+
+            int from = serialRxBuff.IndexOf("<")+1;
+            int to = serialRxBuff.IndexOf(">");
+            if(from != -1 && to != -1)
+            {
+                res = serialRxBuff.Substring(from, to - from);
+            }
+            else
+            {
+                // invalid message
+                LogMessage("serialPortReadCallback", "Invalid message: " + serialRxBuff);
+                return;
+            }
+            if(res == null || res.Length < 3)
+            {
+                LogMessage("serialPortReadCallback", "Invalid message: " + serialRxBuff);
+                return;
+            }
+
+            LogMessage("serialPortReadCallback", "Got message: " + serialRxBuff + " " + res);
+
+            try
+            {
+                if (res[0] == 'I') // Information
+                {
+                    if (res[1] == 'm') // Moving
+                    {
+                        if (!float.TryParse(res.Substring(2, res.Length-2), out val)) { throw new Exception("ValueError"); }
+                        else
+                        {
+                            moving = val != 0;
+                            if (moving)
+                            {
+                                hasMoved = true;
+                            }
+                        
+                        }
+                    }
+                    else if(res[1] == 't')
+                    {
+                        if (!float.TryParse(res.Substring(2, res.Length - 2), out val)) { throw new Exception("ValueError"); }
+                        else
+                        {
+                            temperature = val;
+                        }
+                    }
+                    else if (res[1] == 'p')
+                    {
+                        if (!float.TryParse(res.Substring(2, res.Length - 2), out val)) { throw new Exception("ValueError"); }
+                        else
+                        {
+                            focuserPosition = (int)val;
+                        }
+                    }
+                }
+                else if (res[0] == 'E') // Error
+                {
+                    LogMessage("serialPortReadCallback", "Error message: " + res);
+                }
+            }
+            catch (Exception)
+            {
+                LogMessage("serialPortReadCallback", "Error when parsing message: " + res);
+            }
+
+            rxString = res;
+            newRX = true;
+            
+        }
+
+
+
+        internal static void ConnectPort()
+        {
+            try
+            {
+                serialPort = new SerialPort(comPort);
+                serialPort.BaudRate = baudRate;
+                serialPort.Parity = Parity.None;
+                serialPort.StopBits = StopBits.One;
+                serialPort.DataBits = 8;
+                serialPort.Handshake = Handshake.None;
+                serialPort.RtsEnable = true;
+                serialPort.NewLine = "\r\n";
+                serialPort.ReadTimeout = 2000;
+                serialPort.WriteTimeout = 2000;
+                serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
+
+                if (!serialPort.IsOpen)
+                {
+                    LogMessage("ConnectPort", "Opening port " + comPort);
+                    try { serialPort.Open(); }
+                    catch (Exception)
+                    {
+                        LogMessage("ConnectPort", "Failed to open port " + comPort);
+                        throw new Exception("Failed to open port");
+                    }
+                }
+                if (serialPort.IsOpen)
+                {
+                    LogMessage("ConnectPort", "Opened port " + comPort);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+            }
         }
 
 
         internal static void ConnectHardware()
         {
 
-            LogMessage("InitialiseHardware", "Connecting to port " + comPort);
+            LogMessage("InitialiseHardware", "Establishing connection on port " + comPort);
             try
             {
-                serialPort = new SerialPort(comPort, baudRate);
-                serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
                 if (!serialPort.IsOpen)
                 {
-                    serialPort.Open();
+                    LogMessage("InitialiseHardware", "Serial port not open " + comPort);
+                    try { ConnectPort(); }
+                    catch (Exception)
+                    {
+                        LogMessage("InitialiseHardware", "Failed to open port " + comPort);
+                        throw new Exception("Failed to open port");
+                    }
                 }
 
-
                 // TODO send initial config and get initial data
-                string ret = Action("readVersion", "");  // check if comms OK
-                if(ret != null)
+                LogMessage("InitialiseHardware", "Checking hardware on port " + comPort);
+                string ret = Action("readVersion");  // check if comms OK
+                if (ret != null)
                 {
-
+                    LogMessage("InitialiseHardware", "Connected to hardware on port " + comPort);
+                    connectedState = true;
                 }
                 else
                 {
-                    throw new Exception("Cannot connect to focuser on serial port");
+                    LogMessage("InitialiseHardware", "Failed to connect to hardware on port " + comPort);
+                    throw new Exception("Failed to connect to hardware on port");
                 }
-
 
             }
             catch (Exception e)
             {
-                LogMessage("InitialiseHardware", "Failed to connect to hardware on port " + comPort);
-                System.Diagnostics.Debug.WriteLine(e.Message);
                 connectedState = false;
-                tl.LogMessage("Cannot Open Serial Port", comPort);
+                System.Diagnostics.Debug.WriteLine(e.Message);
                 if (serialPort.IsOpen)
                 {
                     serialPort.Close();
@@ -153,7 +289,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
                 LogMessage("InitialiseHardware", "Completed basic initialisation");
 
                 // TODO one-off hardware setup (check that hardware exists and comms ok)
-                ConnectHardware();
+                ConnectPort();
 
                 LogMessage("InitialiseHardware", $"One-off initialisation complete.");
                 runOnce = true; // Set the flag to ensure that this code is not run again
@@ -192,8 +328,23 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         {
             get
             {
-                LogMessage("SupportedActions Get", "Returning empty ArrayList");
-                return new ArrayList();
+                //LogMessage("SupportedActions Get", "Returning empty ArrayList");
+                //return new ArrayList();
+                
+                ArrayList actions = new ArrayList();
+                actions.Add("readVersion");
+                actions.Add("readHumidity");
+                actions.Add("readPressure");
+                actions.Add("readDewpoint");
+                actions.Add("emergencyStop");
+                actions.Add("setRate");
+                actions.Add("setHome");
+                actions.Add("setPosition");
+                actions.Add("moveRelative");
+                actions.Add("jogOut");
+                actions.Add("jogIn");
+                return actions;
+                
             }
         }
 
@@ -204,33 +355,36 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         /// <para>Suppose filter wheels start to appear with automatic wheel changers; new actions could be <c>QueryWheels</c> and <c>SelectWheel</c>. The former returning a formatted list
         /// of wheel names and the second taking a wheel name and making the change, returning appropriate values to indicate success or failure.</para>
         /// </returns>
-        public static string Action(string actionName = null, string actionParameters = "0")
-        {   // TODO implement actions
+        public static string Action(string actionName, string actionParameters = "0")
+        {
             string ret = null;
-
+            LogMessage("Action", actionName);
             switch (actionName)
             {
+
                 case "readVersion":
-                    serialPort.WriteLine("[Rv" + actionParameters + "]");
-                    ret = "<Iv'MTAF0.1a'>";
+                    ret = CommandString("Rv");
+                    if(ret != null)
+                    {
+                        if(ret[1] == 'v')
+                        {
+                            ret = ret.Substring(2, ret.Length - 2);
+                        }
+                        else
+                        {
+                            ret = null;
+                        }
+                    }
                     break;
 
-                case "moveAbsolute":
-                    serialPort.WriteLine("[Ma" + actionParameters + "]");
-                    ret = "<Im1>";  // TODO fix this
-                    // set moving based on response
-                    break;
-
-                case "readPosition":
-                    serialPort.WriteLine("[Rp" + actionParameters + "]");
-                    ret = "<Ip0>";
+                case "setRate":
+                    CommandBlind("Sr" + actionParameters);
                     break;
 
                 default:
                     LogMessage("Action", $"Action {actionName}, parameters {actionParameters} is not implemented");
                     throw new ActionNotImplementedException("Action " + actionName + " is not implemented by this driver");
             }
-            
             return ret;
         }
 
@@ -243,13 +397,23 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         /// if set to <c>true</c> the string is transmitted 'as-is'.
         /// If set to <c>false</c> then protocol framing characters may be added prior to transmission.
         /// </param>
-        public static void CommandBlind(string command, bool raw)
+        public static void CommandBlind(string command, bool raw = false)
         {
-            CheckConnected("CommandBlind");
-            // TODO The optional CommandBlind method should either be implemented OR throw a MethodNotImplementedException
-            // If implemented, CommandBlind must send the supplied command to the mount and return immediately without waiting for a response
+            LogMessage("CommandBlind", command);
 
-            throw new MethodNotImplementedException($"CommandBlind - Command:{command}, Raw: {raw}.");
+            if (!serialPort.IsOpen)
+            {
+                LogMessage("CommandBlind", "Serial port not open");
+            }
+
+            try
+            {
+                serialPort.WriteLine("[" + command + "]");
+            }
+            catch (Exception)
+            {
+                LogMessage("CommandBlind", "SerialPort write timeout");
+            }
         }
 
         /// <summary>
@@ -264,7 +428,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         /// <returns>
         /// Returns the interpreted boolean response received from the device.
         /// </returns>
-        public static bool CommandBool(string command, bool raw)
+        public static bool CommandBool(string command, bool raw = false)
         {
             CheckConnected("CommandBool");
             // TODO The optional CommandBool method should either be implemented OR throw a MethodNotImplementedException
@@ -285,13 +449,43 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         /// <returns>
         /// Returns the string response received from the device.
         /// </returns>
-        public static string CommandString(string command, bool raw)
+        public static string CommandString(string command, bool raw = false)
         {
-            CheckConnected("CommandString");
-            // TODO The optional CommandString method should either be implemented OR throw a MethodNotImplementedException
-            // If implemented, CommandString must send the supplied command to the mount and wait for a response before returning this to the client
 
-            throw new MethodNotImplementedException($"CommandString - Command:{command}, Raw: {raw}.");
+            LogMessage("CommandString", command);
+
+            if (!serialPort.IsOpen)
+            {
+                LogMessage("CommandString", "Serial port not open");
+            }
+
+            newRX = false;
+
+            try
+            {
+                serialPort.WriteLine("[" + command + "]");
+            }
+            catch (Exception)
+            {
+                LogMessage("CommandString", "SerialPort write timeout");
+                return null;
+            }
+
+            DateTime startTime = DateTime.Now;
+            Double elapsedMillis = 0;
+
+            while (!newRX)
+            {
+                elapsedMillis = ((TimeSpan)(DateTime.Now - startTime)).TotalMilliseconds;
+                if (elapsedMillis > responseTimeout)
+                {
+                    LogMessage("CommandString", "Response timeout");
+                    return null;
+                }
+            }
+
+            return rxString;
+            
         }
 
         /// <summary>
@@ -374,8 +568,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
 
                     // TODO insert connect to the device code here
                     ConnectHardware();
-
-                    connectedState = true;
+                    
                 }
                 else
                 {
@@ -386,7 +579,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
                     {
                         if (moving)
                         {
-                            // TODO stop moving
+                            Halt();
                         }
                         serialPort.Close();
                     }
@@ -471,7 +664,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         #region IFocuser Implementation
 
         private static int focuserPosition = 0; // Class level variable to hold the current focuser position
-        private const int focuserSteps = 10000;
+        private const int focuserSteps = 37000;
 
         /// <summary>
         /// True if the focuser is capable of absolute position; that is, being commanded to a specific step location.
@@ -490,8 +683,11 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         /// </summary>
         internal static void Halt()
         {
-            LogMessage("Halt", "Not implemented");
-            throw new MethodNotImplementedException("Halt");
+            //LogMessage("Halt", "Not implemented");
+            //throw new MethodNotImplementedException("Halt");
+            LogMessage("Halt", "Execute");
+            CommandBlind("Ms");
+            
         }
 
         /// <summary>
@@ -501,8 +697,8 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         {
             get
             {
-                LogMessage("IsMoving Get", false.ToString());
-                return false; // This focuser always moves instantaneously so no need for IsMoving ever to be True
+                LogMessage("IsMoving Get", moving.ToString());
+                return moving;
             }
         }
 
@@ -555,18 +751,39 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         internal static void Move(int Position)
         {
             LogMessage("Move", Position.ToString());
-            Action("moveAbsolute",Position.ToString());
-            focuserPosition = Position; // Set the focuser position
+            Action("setRate", "1");
+            CommandBlind("Ma" + Position.ToString());
+            /*
+            waitForMove = true;  // TODO use this if Move command should block until complete
+            while (waitForMove)
+            {
+                // wait until finished move
+            }
+            */
         }
 
         /// <summary>
         /// Current focuser position, in steps.
         /// </summary>
         internal static int Position
-        {
+        {         
             get
             {
-                return focuserPosition; // Return the focuser position
+                LogMessage("Position Get", "");
+                if (hasMoved)
+                {
+                    string res = CommandString("Rp");
+                    if (!moving)
+                    {
+                        hasMoved = false;
+                    }
+                    return focuserPosition; 
+                }
+                else
+                {
+                    return focuserPosition;
+                }
+                
             }
 
             set
@@ -583,8 +800,9 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         {
             get
             {
-                LogMessage("StepSize Get", "Not implemented");
-                throw new PropertyNotImplementedException("StepSize", false);
+                //LogMessage("StepSize Get", "Not implemented");
+                //throw new PropertyNotImplementedException("StepSize", false);
+                return 1.0; // using 1 step = 1um, conversion is handled by hardware
             }
         }
 
@@ -624,9 +842,9 @@ namespace ASCOM.McMullenTechFocuser.Focuser
         {
             get
             {
-                //return 12.34;
-                LogMessage("Temperature Get", "Not implemented");
-                throw new PropertyNotImplementedException("Temperature", false);
+                CommandString("Rt");
+                return temperature;
+
             }
         }
 

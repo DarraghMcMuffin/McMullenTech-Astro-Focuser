@@ -17,15 +17,15 @@ void Master::run(void *pvParameter){
 
   pinMode(LED_BUILTIN, OUTPUT);
 
-  master->ser->begin(USB_BAUD);
+  bool isMoving = false;
 
-  xTaskCreatePinnedToCore(COMPort::run, "COMPortTask", 4000, (void*)master->ser, 4, NULL, 1);
-  xTaskCreatePinnedToCore(digitalInput::run, "digitalInputTask", 2000, (void*)master->buttons, 6, NULL, 1);
+  xTaskCreatePinnedToCore(COMPort::run, "COMPortTask", 4000, (void*)master->ser, 6, NULL, 1);
+  xTaskCreatePinnedToCore(digitalInput::run, "digitalInputTask", 2000, (void*)master->buttons, 4, NULL, 1);
   xTaskCreatePinnedToCore(stepper::run, "stepperTask", 8000, (void*)master->motor, 8, NULL, 1);                 
   xTaskCreatePinnedToCore(sensor::run, "sensorTask", 2000, (void*)master->weather, 2, NULL, 1);       
   //xTaskCreatePinnedToCore(NVMEM::run, "NVMEMTask", 2048, NULL, 1, NULL, 1);   
 
-  vTaskDelay(pdMS_TO_TICKS(100));
+  vTaskDelay(pdMS_TO_TICKS(200));
 
   for(;;){
     
@@ -36,8 +36,13 @@ void Master::run(void *pvParameter){
       master->executeCommand();
     }
 
-    // if moving changes state, ser->reportInfo()
-    
+    // if moving changes state, update and send message
+    if(master->motor->isMoving() != isMoving){
+      isMoving = master->motor->isMoving();
+      master->ser->reportInfo('m', int(isMoving));
+    }
+
+
     /*
     if(weather->available()){
       temp = weather->getTemperature();
@@ -134,7 +139,7 @@ void Master::executeCommand(){
     else if(this->cmd.sec == 'p'){
       // check that motor is stopped before setting position, else return error
       // check bounds 
-      this->motor->setCurrentPos(cmd.val);
+      this->motor->setCurrentPos((float)cmd.val);
     }
     else{
 
@@ -143,21 +148,28 @@ void Master::executeCommand(){
 
   else if(this->cmd.prim == 'R'){ // Read
     if(this->cmd.sec == 'p'){
-      snprintf(this->charBuff, OUT_BUFF_SIZE, "<Ip%d>", this->motor->getPosition());
+      snprintf(this->charBuff, OUT_BUFF_SIZE, "<Ip%d>", (int32_t)this->motor->getPosition());
       this->ser->send(this->charBuff);
     }
     else if(this->cmd.sec == 'm'){
       snprintf(this->charBuff, OUT_BUFF_SIZE, "<Im%d>", this->motor->isMoving());
       this->ser->send(this->charBuff);
     }
-    else if(this->cmd.sec == 'w'){
-      if(this->weather->available()){
-        snprintf(this->charBuff, OUT_BUFF_SIZE, "<It%.2fh%.2fk%.3fd%.2f>", this->weather->getTemperature(), this->weather->getHumidity(), this->weather->getPressure(), this->weather->getDewPoint());
-        this->ser->send(this->charBuff);
-      }
-      else{
-        // Error
-      }
+    else if(this->cmd.sec == 't'){
+      snprintf(this->charBuff, OUT_BUFF_SIZE, "<It%.2f>", this->weather->getTemperature());
+      this->ser->send(this->charBuff);
+    }
+    else if(this->cmd.sec == 'k'){
+      snprintf(this->charBuff, OUT_BUFF_SIZE, "<It%.3f>", this->weather->getPressure());
+      this->ser->send(this->charBuff);
+    }
+    else if(this->cmd.sec == 'h'){
+      snprintf(this->charBuff, OUT_BUFF_SIZE, "<It%.2f>", this->weather->getHumidity());
+      this->ser->send(this->charBuff);
+    }
+    else if(this->cmd.sec == 'd'){
+      snprintf(this->charBuff, OUT_BUFF_SIZE, "<It%.2f>", this->weather->getDewPoint());
+      this->ser->send(this->charBuff);
     }
     else if(this->cmd.sec == 'v'){
       snprintf(this->charBuff, OUT_BUFF_SIZE, "<Iv'%s'>", VERSION);
