@@ -52,7 +52,7 @@ namespace ASCOM.McMullenTechFocuser.Focuser
 
         // TODO Custom internal variables
         internal static SerialPort serialPort;
-        internal static int baudRate = 115200;  // TODO, set from setup dialog
+        internal static int baudRate;
         internal static string serialRxBuff = null;
         internal static string rxString = null;
         internal static bool newRX = false;

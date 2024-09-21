@@ -1,5 +1,7 @@
 using ASCOM.Utilities;
+using ASCOM.Utilities.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -43,6 +45,19 @@ namespace ASCOM.McMullenTechFocuser.Focuser
                 FocuserHardware.comPort = (string)comboBoxComPort.SelectedItem;
                 tl.LogMessage("Setup OK", $"New configuration values - COM Port: {comboBoxComPort.SelectedItem}");
             }
+
+            if(comboBoxBaudRate.SelectedItem is null)
+            {
+                tl.LogMessage("Setup OK", $"New configuration values - Baudrate: Not selected");
+            }
+            else
+            {
+                int baudRate = 0;
+                int.TryParse(comboBoxBaudRate.SelectedItem.ToString(), out baudRate);
+                FocuserHardware.baudRate = baudRate;
+                tl.LogMessage("Setup OK", $"New configuration values - Baudrate: {comboBoxBaudRate.SelectedItem}");
+            }
+            
         }
 
         private void buttonCancel_Click(object sender, EventArgs e) // Cancel button event handler
@@ -93,7 +108,12 @@ namespace ASCOM.McMullenTechFocuser.Focuser
                 comboBoxComPort.SelectedItem = FocuserHardware.comPort;
             }
 
-            tl.LogMessage("InitUI", $"Set UI controls to Trace: {checkBoxTraceOn.Checked}, COM Port: {comboBoxComPort.SelectedItem}");
+            string[] baudRates = new string[] {"9600","115200"};
+            comboBoxBaudRate.Items.Clear();
+            comboBoxBaudRate.Items.AddRange(baudRates);
+            comboBoxBaudRate.SelectedItem = "115200";
+
+            tl.LogMessage("InitUI", $"Set UI controls to Trace: {checkBoxTraceOn.Checked}, COM Port: {comboBoxComPort.SelectedItem}, Baudrate: {comboBoxBaudRate.SelectedItem}");
         }
 
         private void SetupDialogForm_Load(object sender, EventArgs e)
@@ -109,6 +129,5 @@ namespace ASCOM.McMullenTechFocuser.Focuser
                 TopMost = false;
             }
         }
-
     }
 }

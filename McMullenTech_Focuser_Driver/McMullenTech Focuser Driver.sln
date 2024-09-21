@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McMullenTech Fouser Driver", "McMullenTech Fouser Driver\McMullenTech Fouser Driver.csproj", "{C708E487-E3A9-4073-A545-294B88674225}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McMullenTech Focuser Control", "McMullenTech Focuser Control\McMullenTech Focuser Control.csproj", "{8E8D406C-1838-4914-867D-AB602D0EAF3E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McMullenTech Focuser Driver", "McMullenTech Focuser Driver\McMullenTech Focuser Driver.csproj", "{CC241543-13B6-4C22-8A7A-783B0491BE48}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "McMullenTech Focuser Driver Installer", "McMullenTech Focuser Driver Installer\McMullenTech Focuser Driver Installer.vdproj", "{DB924783-84EF-42E1-A739-3BDCC359DBE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C708E487-E3A9-4073-A545-294B88674225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C708E487-E3A9-4073-A545-294B88674225}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C708E487-E3A9-4073-A545-294B88674225}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C708E487-E3A9-4073-A545-294B88674225}.Debug|x86.Build.0 = Debug|Any CPU
-		{C708E487-E3A9-4073-A545-294B88674225}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C708E487-E3A9-4073-A545-294B88674225}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C708E487-E3A9-4073-A545-294B88674225}.Release|x86.ActiveCfg = Release|Any CPU
-		{C708E487-E3A9-4073-A545-294B88674225}.Release|x86.Build.0 = Release|Any CPU
 		{8E8D406C-1838-4914-867D-AB602D0EAF3E}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{8E8D406C-1838-4914-867D-AB602D0EAF3E}.Debug|Any CPU.Build.0 = Debug|x86
 		{8E8D406C-1838-4914-867D-AB602D0EAF3E}.Debug|x86.ActiveCfg = Debug|x86
@@ -41,6 +33,14 @@ Global
 		{CC241543-13B6-4C22-8A7A-783B0491BE48}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC241543-13B6-4C22-8A7A-783B0491BE48}.Release|x86.ActiveCfg = Release|Any CPU
 		{CC241543-13B6-4C22-8A7A-783B0491BE48}.Release|x86.Build.0 = Release|Any CPU
+		{DB924783-84EF-42E1-A739-3BDCC359DBE5}.Debug|Any CPU.ActiveCfg = Release
+		{DB924783-84EF-42E1-A739-3BDCC359DBE5}.Debug|Any CPU.Build.0 = Release
+		{DB924783-84EF-42E1-A739-3BDCC359DBE5}.Debug|x86.ActiveCfg = Debug
+		{DB924783-84EF-42E1-A739-3BDCC359DBE5}.Debug|x86.Build.0 = Debug
+		{DB924783-84EF-42E1-A739-3BDCC359DBE5}.Release|Any CPU.ActiveCfg = Release
+		{DB924783-84EF-42E1-A739-3BDCC359DBE5}.Release|Any CPU.Build.0 = Release
+		{DB924783-84EF-42E1-A739-3BDCC359DBE5}.Release|x86.ActiveCfg = Release
+		{DB924783-84EF-42E1-A739-3BDCC359DBE5}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

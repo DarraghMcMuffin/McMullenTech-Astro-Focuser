@@ -1,0 +1,37 @@
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.McMullenTechFocuser.pdb
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Astrometry.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Attributes.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Controls.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.DeviceInterfaces.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.DriverAccess.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Exceptions.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.SettingsProvider.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Utilities.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Utilities.Video.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Internal.Extensions.dll
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.McMullenTech.Controller.pdb
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Astrometry.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Attributes.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Controls.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.DeviceInterfaces.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.DriverAccess.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Exceptions.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.SettingsProvider.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Utilities.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.Internal.Extensions.xml
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\McMullenTech Focuser Driver.csproj.AssemblyReference.cache
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\ASCOM.LocalServer.FrmMain.resources
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\ASCOM.McMullenTechFocuser.Focuser.SetupDialogForm.resources
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\McMullenTech Focuser Driver.csproj.GenerateResource.cache
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\McMullenTech Focuser Driver.csproj.CoreCompileInputs.cache
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\McMullen.1E5A2C02.Up2Date
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\ASCOM.McMullenTechFocuser.pdb
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.McMullenTech.Controller.exe
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.McMullenTech.Controller.exe.config
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.McMullenTechFocuser.exe.config
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.McMullenTechFocuser.exe.manifest
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.McMullenTechFocuser.application
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\bin\Release\ASCOM.McMullenTechFocuser.exe
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\ASCOM.McMullenTechFocuser.exe.manifest
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\ASCOM.McMullenTechFocuser.application
+C:\Users\maca4\Desktop\Projects\Astro\Focuser\McMullenTech_Focuser\McMullenTech_Focuser_Driver\McMullenTech Focuser Driver\obj\Release\ASCOM.McMullenTechFocuser.exe

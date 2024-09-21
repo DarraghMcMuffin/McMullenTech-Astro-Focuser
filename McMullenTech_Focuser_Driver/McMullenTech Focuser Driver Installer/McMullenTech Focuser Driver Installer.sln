@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "McMullenTech Focuser Driver Installer", "McMullenTech Focuser Driver Installer.vdproj", "{4681F7EA-3D9D-4748-BD99-87D0B8B7FB4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4681F7EA-3D9D-4748-BD99-87D0B8B7FB4B}.Debug|Default.ActiveCfg = Debug
+		{4681F7EA-3D9D-4748-BD99-87D0B8B7FB4B}.Debug|Default.Build.0 = Debug
+		{4681F7EA-3D9D-4748-BD99-87D0B8B7FB4B}.Release|Default.ActiveCfg = Release
+		{4681F7EA-3D9D-4748-BD99-87D0B8B7FB4B}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {765CAC42-2C98-452B-856D-67D38EB98207}
+	EndGlobalSection
+EndGlobal
