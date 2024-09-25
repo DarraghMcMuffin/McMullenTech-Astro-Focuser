@@ -8,7 +8,7 @@
 
 #pragma once
 
-#define VERSION "MTAF0.1a"
+#define VERSION "MTAF_1.0"
 
 // USB config
 #define USB_SERIAL  Serial
@@ -54,3 +54,6 @@
 #define BME280_RATE 2000    // loop time (ms)
 #define MAIN_LOOP_RATE 10
 #define COM_LOOP_RATE 50
+
+// NVS
+#define NVS_POS_TIMEOUT 20000   // save current position if haven't moved for 20s

@@ -10,6 +10,7 @@ class stepper {
         stepper();
         bool isMoving();
         float getPosition();
+        int32_t getPositionSteps();
         uint8_t moveToPosition(float pos);
         uint8_t moveRelative(float dist);
         uint8_t enable();
@@ -22,6 +23,7 @@ class stepper {
         uint8_t resetEmergencyStop();
         uint8_t setHomeHere();
         uint8_t setCurrentPos(float pos);
+        uint8_t setCurrentPosSteps(int32_t steps);
         long stepsToTarget();
 
         static void run(void *pvParameter);

@@ -49,13 +49,6 @@ void COMPort::run(void *pvParameter){
           // simplify into parseInput()
           if(c == '\r' && !ser->cmd.valid){
             ser->cmd = ser->parseCommand(ser->inBuff);
-            /*
-            if(command.valid){
-              ser->send("VALID");
-            }else{
-              ser->send("INVAL");
-            }
-            */
             ser->resetInBuff();
           }else if(c != '\n'){    // ignore \n
             if(!ser->appendInBuff(c)){

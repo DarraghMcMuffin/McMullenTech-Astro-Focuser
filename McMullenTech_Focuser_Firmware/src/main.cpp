@@ -17,15 +17,25 @@ void Master::run(void *pvParameter){
 
   pinMode(LED_BUILTIN, OUTPUT);
 
-  bool isMoving = false;
-
-  xTaskCreatePinnedToCore(COMPort::run, "COMPortTask", 4000, (void*)master->ser, 6, NULL, 1);
+  xTaskCreatePinnedToCore(stepper::run, "stepperTask", 8000, (void*)master->motor, 8, NULL, 1);
+  vTaskDelay(pdMS_TO_TICKS(50));
+  
+  if(master->nvs->init()){
+    master->motor->setCurrentPosSteps(master->nvs->getPosSteps());
+  }else{
+    master->motor->setCurrentPos(14000);
+  }
+  
   xTaskCreatePinnedToCore(digitalInput::run, "digitalInputTask", 2000, (void*)master->buttons, 4, NULL, 1);
-  xTaskCreatePinnedToCore(stepper::run, "stepperTask", 8000, (void*)master->motor, 8, NULL, 1);                 
-  xTaskCreatePinnedToCore(sensor::run, "sensorTask", 2000, (void*)master->weather, 2, NULL, 1);       
-  //xTaskCreatePinnedToCore(NVMEM::run, "NVMEMTask", 2048, NULL, 1, NULL, 1);   
+  vTaskDelay(pdMS_TO_TICKS(50));
 
+  xTaskCreatePinnedToCore(sensor::run, "sensorTask", 2000, (void*)master->weather, 2, NULL, 1);  
+  vTaskDelay(pdMS_TO_TICKS(50));
+
+  xTaskCreatePinnedToCore(COMPort::run, "COMPortTask", 4000, (void*)master->ser, 6, NULL, 1);     
   vTaskDelay(pdMS_TO_TICKS(200));
+
+  bool isMoving = false;
 
   for(;;){
     
@@ -40,24 +50,23 @@ void Master::run(void *pvParameter){
     if(master->motor->isMoving() != isMoving){
       isMoving = master->motor->isMoving();
       master->ser->reportInfo('m', int(isMoving));
-    }
 
-
-    /*
-    if(weather->available()){
-      temp = weather->getTemperature();
-      hum = weather->getHumidity();
-      pres = weather->getPressure();
-      dp = weather->getDewPoint();
-      snprintf(charBuff, OUT_BUFF_SIZE, "%.2f %.2f %.3f %.2f", temp, hum, pres, dp);
-      ser->send(charBuff);
+      if(!isMoving){ // if just finished a move
+        if(master->nvs->nvs_OK()){
+          master->nvs->updatePosSteps(master->motor->getPositionSteps());
+        }
+        
+      }
+    
     }
-    */
+    
+    
 
     vTaskDelay(pdMS_TO_TICKS(MAIN_LOOP_RATE));
 
   }
 }
+
 
 
 
@@ -140,6 +149,9 @@ void Master::executeCommand(){
       // check that motor is stopped before setting position, else return error
       // check bounds 
       this->motor->setCurrentPos((float)cmd.val);
+      if(this->nvs->nvs_OK()){
+        this->nvs->updatePosSteps(this->motor->getPositionSteps());
+      }
     }
     else{
 
@@ -148,7 +160,12 @@ void Master::executeCommand(){
 
   else if(this->cmd.prim == 'R'){ // Read
     if(this->cmd.sec == 'p'){
-      snprintf(this->charBuff, OUT_BUFF_SIZE, "<Ip%d>", (int32_t)this->motor->getPosition());
+      if(abs((float)this->targetPos - this->motor->getPosition()) <= 1){  // if error between requested position and true position <= 1
+        snprintf(this->charBuff, OUT_BUFF_SIZE, "<Ip%d>", this->targetPos); // return target pos (to fixed off-by-1 error)
+        this->targetPos = 0;
+      }else{
+        snprintf(this->charBuff, OUT_BUFF_SIZE, "<Ip%d>", (int32_t)this->motor->getPosition());
+      }
       this->ser->send(this->charBuff);
     }
     else if(this->cmd.sec == 'm'){
@@ -183,7 +200,7 @@ void Master::executeCommand(){
   else if(this->cmd.prim == 'M'){ // Move
     if(this->cmd.sec == 'a'){     // Absolute
       if(!this->motor->moveToPosition(this->cmd.val)){ // returns error if out of bounds, return 0 if OK
-        
+        this->targetPos = this->cmd.val;
       }
       else{
         
@@ -218,6 +235,7 @@ Master::Master(){
   buttons = new digitalInput();
   motor = new stepper();
   weather = new sensor();
+  nvs = new NVMEM();
 }
 
 

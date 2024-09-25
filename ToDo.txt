@@ -1,0 +1,14 @@
+firmware:
+	NVMEM: change storedPosSteps to currentPosSteps and add isStored() to check if value stored
+		add a method to store current value without waiting
+	check set pos, move and store/recall pos against limits and implement error messages
+	send "ready" packet over serial until PC acknowledges
+
+driver:
+	disable RTS and DTR
+	wait to receive "ready" packet, then send "ready ACK" then begin serial comms as normal
+	
+
+hardware:
+	check collimation and sensor tilt (sharpcap?)
+	measure aluminium bracket

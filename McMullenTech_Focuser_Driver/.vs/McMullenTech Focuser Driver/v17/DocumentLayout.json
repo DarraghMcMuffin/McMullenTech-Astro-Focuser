@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CC241543-13B6-4C22-8A7A-783B0491BE48}|McMullenTech Focuser Driver\\McMullenTech Focuser Driver.csproj|c:\\users\\maca4\\desktop\\projects\\astro\\focuser\\mcmullentech_focuser\\mcmullentech_focuser_driver\\mcmullentech focuser driver\\focuserdriver\\focuserhardware..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC241543-13B6-4C22-8A7A-783B0491BE48}|McMullenTech Focuser Driver\\McMullenTech Focuser Driver.csproj|solutionrelative:mcmullentech focuser driver\\focuserdriver\\focuserhardware..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FocuserHardware..cs",
+              "DocumentMoniker": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Driver\\FocuserDriver\\FocuserHardware..cs",
+              "RelativeDocumentMoniker": "McMullenTech Focuser Driver\\FocuserDriver\\FocuserHardware..cs",
+              "ToolTip": "C:\\Users\\maca4\\Desktop\\Projects\\Astro\\Focuser\\McMullenTech_Focuser\\McMullenTech_Focuser_Driver\\McMullenTech Focuser Driver\\FocuserDriver\\FocuserHardware..cs",
+              "RelativeToolTip": "McMullenTech Focuser Driver\\FocuserDriver\\FocuserHardware..cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAowLwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T07:10:19.149Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

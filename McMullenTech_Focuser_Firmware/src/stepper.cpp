@@ -100,6 +100,12 @@ float stepper::getPosition(){
     return pos;
 }
 
+int32_t stepper::getPositionSteps(){
+    int32_t steps = 0;
+    steps = motor.getCurrentPositionInSteps();
+    return steps;
+}
+
 uint8_t stepper::softStop(){
     motor.setTargetPositionToStop();
     return 1;
@@ -141,6 +147,13 @@ uint8_t stepper::setCurrentPos(float pos){
     float mm = 0;
     mm = um2mm(pos);
     motor.setCurrentPositionInMillimeters(mm);
+    motor.setTargetPositionInMillimeters(mm);
+    return 1;
+}
+
+uint8_t stepper::setCurrentPosSteps(int32_t steps){
+    motor.setCurrentPositionInSteps(steps);
+    motor.setTargetPositionInSteps(steps);
     return 1;
 }
 

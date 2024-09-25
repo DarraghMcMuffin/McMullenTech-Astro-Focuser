@@ -21,6 +21,7 @@ class Master {
         digitalInput* buttons = NULL;
         stepper* motor = NULL;
         sensor* weather = NULL;
+        NVMEM* nvs = NULL;
         int state = 0;  // -1 = error, 0 = not init, 1 = ready, 2 = moving
         bool b1 = 0;
         bool b2 = 0;
@@ -28,6 +29,7 @@ class Master {
         float hum = 0.0;
         float pres = 0.0;
         float dp = 0.0;
+        int32_t targetPos = 0;
         char charBuff[OUT_BUFF_SIZE];
         struct cmdStruct cmd;
         

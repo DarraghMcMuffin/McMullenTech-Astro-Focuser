@@ -15,9 +15,47 @@ NVMEM::NVMEM(){
 
 }
 
-void NVMEM::run(void *pvParameter){
+
+NVMEM::~NVMEM(){
+    xTimerDelete(timer_handle,0);
+    endNVS();
+}
+
+
+void NVMEM::timerCallback(TimerHandle_t xTimer){
+
+    NVMEM* nvs = static_cast<NVMEM*> (pvTimerGetTimerID(xTimer));
+
+    if(nvs->readPosSteps() != nvs->storedPosSteps){
+        nvs->writePosSteps(nvs->storedPosSteps);
+    }
     
 }
+
+
+bool NVMEM::init(){ // replace with init() function, don't use a task
+    OK = false;
+
+    // init NVS
+    if(startNVS()){
+        OK = true;
+    }else{
+        return OK;
+    }
+
+    // init timer
+    timer_handle = xTimerCreate("posStoreTimer",                // string name
+                                pdMS_TO_TICKS(NVS_POS_TIMEOUT), // duration
+                                pdFALSE,                        // auto reload
+                                this,                           // (timer ID) reference to this object to cast in callback
+                                &timerCallback);                // callback function
+
+    // read initial position
+    storedPosSteps = readPosSteps();
+
+    return OK;
+}
+
 
 uint8_t NVMEM::startNVS(){
     uint8_t ret = 0;
@@ -40,7 +78,12 @@ uint8_t NVMEM::endNVS(){
 }
 
 
-uint8_t NVMEM::writePosInSteps(int32_t posInSteps){
+bool NVMEM::nvs_OK(){
+    return OK;
+}
+
+
+uint8_t NVMEM::writePosSteps(int32_t posInSteps){
     uint8_t ret = 0;
     esp_err_t err = nvs_set_i32(nvs_handle, "posInSteps", posInSteps);
     if(err == ESP_OK){
@@ -63,10 +106,9 @@ uint8_t NVMEM::writePosInSteps(int32_t posInSteps){
 }
 
 
-int32_t NVMEM::readPosInSteps(){
+int32_t NVMEM::readPosSteps(){
     int32_t posInSteps = 0; // value will default to 0, if not set yet in NVS
     esp_err_t err = nvs_get_i32(nvs_handle, "posInSteps", &posInSteps);
-    /*
     switch (err) {
         case ESP_OK:
             // done
@@ -78,7 +120,21 @@ int32_t NVMEM::readPosInSteps(){
             // "Error reading
             break;
     }
-    */
 
     return posInSteps;
+}
+
+
+int32_t NVMEM::getPosSteps(){
+    return storedPosSteps;
+}
+
+
+void NVMEM::updatePosSteps(int32_t posSteps){
+    storedPosSteps = posSteps;
+    if(xTimerIsTimerActive(timer_handle)){
+        xTimerReset(timer_handle,0);
+    }else{
+        xTimerStart(timer_handle,0);
+    }
 }
