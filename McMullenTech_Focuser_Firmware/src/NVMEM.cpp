@@ -26,8 +26,8 @@ void NVMEM::timerCallback(TimerHandle_t xTimer){
 
     NVMEM* nvs = static_cast<NVMEM*> (pvTimerGetTimerID(xTimer));
 
-    if(nvs->readPosSteps() != nvs->storedPosSteps){
-        nvs->writePosSteps(nvs->storedPosSteps);
+    if(!nvs->isStored()){
+        nvs->writePosSteps(nvs->currentPosSteps);
     }
     
 }
@@ -51,7 +51,7 @@ bool NVMEM::init(){ // replace with init() function, don't use a task
                                 &timerCallback);                // callback function
 
     // read initial position
-    storedPosSteps = readPosSteps();
+    currentPosSteps = readPosSteps();
 
     return OK;
 }
@@ -92,10 +92,6 @@ uint8_t NVMEM::writePosSteps(int32_t posInSteps){
         ret = 0;
         return ret;
     }
-    // Commit written value.
-    // After setting any values, nvs_commit() must be called to ensure changes are written
-    // to flash storage. Implementations may write to storage at other times,
-    // but this is not guaranteed.
     err = nvs_commit(nvs_handle);
     if(err == ESP_OK){
         ret = 1;
@@ -125,16 +121,35 @@ int32_t NVMEM::readPosSteps(){
 }
 
 
-int32_t NVMEM::getPosSteps(){
-    return storedPosSteps;
+int32_t NVMEM::getCurrentPosSteps(){
+    return currentPosSteps;
 }
 
 
+int32_t NVMEM::getStoredPosSteps(){
+    if(!isStored()){
+        return readPosSteps();
+    }else{
+        return currentPosSteps;
+    }
+}
+
+
+void NVMEM::storePosSteps(int32_t posSteps){
+    currentPosSteps = posSteps;
+    writePosSteps(currentPosSteps);
+}
+
 void NVMEM::updatePosSteps(int32_t posSteps){
-    storedPosSteps = posSteps;
+    currentPosSteps = posSteps;
     if(xTimerIsTimerActive(timer_handle)){
         xTimerReset(timer_handle,0);
     }else{
         xTimerStart(timer_handle,0);
     }
+}
+
+
+bool NVMEM::isStored(){
+    return (readPosSteps() == currentPosSteps);
 }

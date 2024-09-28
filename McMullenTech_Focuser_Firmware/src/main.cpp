@@ -21,7 +21,7 @@ void Master::run(void *pvParameter){
   vTaskDelay(pdMS_TO_TICKS(50));
   
   if(master->nvs->init()){
-    master->motor->setCurrentPosSteps(master->nvs->getPosSteps());
+    master->motor->setCurrentPosSteps(master->nvs->getStoredPosSteps());
   }else{
     master->motor->setCurrentPos(14000);
   }
@@ -150,7 +150,7 @@ void Master::executeCommand(){
       // check bounds 
       this->motor->setCurrentPos((float)cmd.val);
       if(this->nvs->nvs_OK()){
-        this->nvs->updatePosSteps(this->motor->getPositionSteps());
+        this->nvs->storePosSteps(this->motor->getPositionSteps());
       }
     }
     else{

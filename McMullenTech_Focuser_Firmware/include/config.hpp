@@ -53,7 +53,7 @@
 // Rates
 #define BME280_RATE 2000    // loop time (ms)
 #define MAIN_LOOP_RATE 10
-#define COM_LOOP_RATE 50
+#define COM_LOOP_RATE 25
 
 // NVS
-#define NVS_POS_TIMEOUT 20000   // save current position if haven't moved for 20s
+#define NVS_POS_TIMEOUT 20000   // save current position if haven't moved for (ms)

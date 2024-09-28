@@ -11,10 +11,13 @@ class NVMEM{
     public:
         NVMEM();
         ~NVMEM();
-        int32_t getPosSteps();
-        void updatePosSteps(int32_t posSteps);
         bool init();
         bool nvs_OK();
+        void updatePosSteps(int32_t posSteps);
+        void storePosSteps(int32_t posSteps);
+        bool isStored();
+        int32_t getCurrentPosSteps();
+        int32_t getStoredPosSteps();
 
     private:
         static void timerCallback(TimerHandle_t xTimer);
@@ -25,6 +28,7 @@ class NVMEM{
 
         TimerHandle_t timer_handle;
         nvs_handle_t nvs_handle;
-        int32_t storedPosSteps = 0;
+
+        int32_t currentPosSteps = 0;
         bool OK = false;
 };
